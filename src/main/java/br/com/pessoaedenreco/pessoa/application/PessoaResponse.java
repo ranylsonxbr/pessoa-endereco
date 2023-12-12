@@ -1,4 +1,4 @@
-package br.com.pessoaedenreco.pessoa.application.api;
+package br.com.pessoaedenreco.pessoa.application;
 
 import lombok.Builder;
 import lombok.Value;
