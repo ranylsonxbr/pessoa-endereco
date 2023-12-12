@@ -1,5 +1,6 @@
 package br.com.pessoaedenreco.pessoa.domain;
 
+import br.com.pessoaedenreco.pessoa.application.PessoaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,4 +29,9 @@ public class Pessoa {
     private LocalDateTime dataHoraDoCadastro;
     private LocalDateTime dataHoraDaUltimaAlteracao;
 
+    public Pessoa(PessoaRequest pessoaRequest) {
+        this.nomeCompleto = pessoaRequest.getNomeCompleto();
+        this.dataDeNascimento = pessoaRequest.getDataDeNascimento();
+        this.dataHoraDoCadastro = LocalDateTime.now();
+    }
 }
