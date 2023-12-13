@@ -15,4 +15,6 @@ public interface PessoaService {
     PessoaDetalhadaResponse buscaPorId(UUID idPessoa);
 
     void altera(UUID idPessoa, PessoaAlteracaoRequest alteraPessoaRequest);
+
+    void deletaPessoaPorId(UUID idPessoa);
 }

@@ -12,4 +12,6 @@ public interface PessoaRespository {
     List<Pessoa> listaTodos();
 
     Pessoa buscaPorId(UUID idPessoa);
+
+    void deletaPessoa(Pessoa pessoa);
 }

@@ -46,10 +46,19 @@ public class PessoaApplicationService implements PessoaService {
 
     @Override
     public void altera(UUID idPessoa, PessoaAlteracaoRequest alteraPessoaRequest) {
-        log.info("[start] PessoaApplicationService - buscaPorId");
+        log.info("[start] PessoaApplicationService - altera");
         Pessoa pessoa = pessoaRepository.buscaPorId(idPessoa);
         pessoa.altera(alteraPessoaRequest);
         pessoaRepository.salva(pessoa);
-        log.info("[start] PessoaApplicationService - buscaPorId");
+        log.info("[finish] PessoaApplicationService - altera");
+    }
+
+    @Override
+    public void deletaPessoaPorId(UUID idPessoa) {
+        log.info("[start] PessoaApplicationService - deletaPessoaPorId");
+        Pessoa pessoa = pessoaRepository.buscaPorId(idPessoa);
+        pessoaRepository.deletaPessoa(pessoa);
+        log.info("[finish] PessoaApplicationService - deletaPessoaPorId");
+
     }
 }

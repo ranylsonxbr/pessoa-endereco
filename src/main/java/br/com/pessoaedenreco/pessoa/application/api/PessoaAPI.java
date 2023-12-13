@@ -28,4 +28,8 @@ public interface PessoaAPI {
     void patchAlteraPessoa(@PathVariable UUID idPessoa,
                       @Valid @RequestBody PessoaAlteracaoRequest alteraPessoaRequest);
 
+    @DeleteMapping(value = "/{idPessoa}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletePessoaPorId(@PathVariable UUID idPessoa);
+
 }
