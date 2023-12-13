@@ -1,4 +1,4 @@
-package br.com.pessoaedenreco.pessoa.service;
+package br.com.pessoaedenreco.pessoa.application.repository;
 
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 

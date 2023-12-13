@@ -1,5 +1,6 @@
-package br.com.pessoaedenreco.pessoa.service;
+package br.com.pessoaedenreco.pessoa.infra;
 
+import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;

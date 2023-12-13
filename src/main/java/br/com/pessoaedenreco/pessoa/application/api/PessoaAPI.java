@@ -1,4 +1,4 @@
-package br.com.pessoaedenreco.pessoa.application;
+package br.com.pessoaedenreco.pessoa.application.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

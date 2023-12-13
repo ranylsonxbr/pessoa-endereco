@@ -1,4 +1,4 @@
-package br.com.pessoaedenreco.pessoa.application;
+package br.com.pessoaedenreco.pessoa.application.api;
 
 import br.com.pessoaedenreco.pessoa.service.PessoaService;
 import lombok.RequiredArgsConstructor;

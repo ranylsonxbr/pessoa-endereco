@@ -1,9 +1,10 @@
 package br.com.pessoaedenreco.pessoa.domain;
 
-import br.com.pessoaedenreco.pessoa.application.PessoaRequest;
+import br.com.pessoaedenreco.pessoa.application.api.PessoaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,7 +19,7 @@ import java.util.UUID;
 public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idPessoa", updatable = false, unique = true, nullable = false)
     private UUID idPessoa;
     @NotBlank

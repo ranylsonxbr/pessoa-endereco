@@ -1,7 +1,9 @@
 package br.com.pessoaedenreco.pessoa.service;
 
-import br.com.pessoaedenreco.pessoa.application.PessoaRequest;
-import br.com.pessoaedenreco.pessoa.application.PessoaResponse;
+
+import br.com.pessoaedenreco.pessoa.application.api.PessoaRequest;
+import br.com.pessoaedenreco.pessoa.application.api.PessoaResponse;
+import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
