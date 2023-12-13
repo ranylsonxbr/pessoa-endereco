@@ -1,10 +1,7 @@
 package br.com.pessoaedenreco.pessoa.service;
 
 
-import br.com.pessoaedenreco.pessoa.application.api.ListaPessoasResponse;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaDetalhadaResponse;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaRequest;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaResponse;
+import br.com.pessoaedenreco.pessoa.application.api.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +13,6 @@ public interface PessoaService {
     List<ListaPessoasResponse> listaTodos();
 
     PessoaDetalhadaResponse buscaPorId(UUID idPessoa);
+
+    void altera(UUID idPessoa, PessoaAlteracaoRequest alteraPessoaRequest);
 }

@@ -1,10 +1,7 @@
 package br.com.pessoaedenreco.pessoa.service;
 
 
-import br.com.pessoaedenreco.pessoa.application.api.ListaPessoasResponse;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaDetalhadaResponse;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaRequest;
-import br.com.pessoaedenreco.pessoa.application.api.PessoaResponse;
+import br.com.pessoaedenreco.pessoa.application.api.*;
 import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
@@ -45,5 +42,14 @@ public class PessoaApplicationService implements PessoaService {
         Pessoa pessoa = pessoaRepository.buscaPorId(idPessoa);
         log.info("[finish] PessoaApplicationService - buscaPorId");
         return new PessoaDetalhadaResponse(pessoa);
+    }
+
+    @Override
+    public void altera(UUID idPessoa, PessoaAlteracaoRequest alteraPessoaRequest) {
+        log.info("[start] PessoaApplicationService - buscaPorId");
+        Pessoa pessoa = pessoaRepository.buscaPorId(idPessoa);
+        pessoa.altera(alteraPessoaRequest);
+        pessoaRepository.salva(pessoa);
+        log.info("[start] PessoaApplicationService - buscaPorId");
     }
 }

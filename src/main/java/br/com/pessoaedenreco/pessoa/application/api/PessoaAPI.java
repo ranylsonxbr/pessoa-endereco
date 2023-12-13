@@ -23,4 +23,9 @@ public interface PessoaAPI {
     @ResponseStatus(code = HttpStatus.OK)
     PessoaDetalhadaResponse getPessoaAtravaesId(@PathVariable UUID idPessoa);
 
+    @PatchMapping(value = "/{idPessoa}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchAlteraPessoa(@PathVariable UUID idPessoa,
+                      @Valid @RequestBody PessoaAlteracaoRequest alteraPessoaRequest);
+
 }
