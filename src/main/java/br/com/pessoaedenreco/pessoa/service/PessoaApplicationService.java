@@ -1,6 +1,7 @@
 package br.com.pessoaedenreco.pessoa.service;
 
 
+import br.com.pessoaedenreco.pessoa.application.api.ListaPessoasResponse;
 import br.com.pessoaedenreco.pessoa.application.api.PessoaRequest;
 import br.com.pessoaedenreco.pessoa.application.api.PessoaResponse;
 import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
@@ -8,6 +9,8 @@ import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Log4j2
@@ -24,5 +27,13 @@ public class PessoaApplicationService implements PessoaService {
         return PessoaResponse.builder()
                 .idPessoa(pessoa.getIdPessoa())
                 .build();
+    }
+
+    @Override
+    public List<ListaPessoasResponse> listaTodos() {
+        log.info("[start] PessoaApplicationService - listaTodos");
+        List<Pessoa> pessoas = pessoaRepository.listaTodos();
+        log.info("[finish] PessoaApplicationService - listaTodos");
+        return ListaPessoasResponse.converte(pessoas);
     }
 }

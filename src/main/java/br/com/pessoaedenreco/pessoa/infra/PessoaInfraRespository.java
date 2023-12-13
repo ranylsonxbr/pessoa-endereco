@@ -1,10 +1,13 @@
 package br.com.pessoaedenreco.pessoa.infra;
 
+import br.com.pessoaedenreco.pessoa.application.api.ListaPessoasResponse;
 import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @Log4j2
@@ -20,4 +23,13 @@ public class PessoaInfraRespository implements PessoaRespository {
         log.info("[finish] PessoaInfraRespository - salva");
         return pessoa;
     }
+
+    @Override
+    public List<Pessoa> listaTodos() {
+        log.info("[start] PessoaInfraRespository - listaTodos");
+        List<Pessoa> todasPessoas = pessoaSpringDataJPARespository.findAll();
+        log.info("[finish] PessoaInfraRespository - listaTodos");
+        return todasPessoas;
+    }
+
 }
