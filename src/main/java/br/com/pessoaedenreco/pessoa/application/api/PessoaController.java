@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -28,5 +29,14 @@ public class PessoaController implements PessoaAPI {
         List<ListaPessoasResponse> pessoas = pessoaService.listaTodos();
         log.info("[finish] PessoaController - criaPessoa");
         return pessoas;
+    }
+
+    @Override
+    public PessoaDetalhadaResponse getPessoaAtravaesId(UUID idPessoa) {
+        log.info("[start] PessoaController - getPessoaAtravaesId");
+        log.info("[idPessoa] {}", idPessoa);
+        PessoaDetalhadaResponse pessoaDetalhada = pessoaService.buscaPorId(idPessoa);
+        log.info("[finish] PessoaController - getPessoaAtravaesId");
+        return pessoaDetalhada;
     }
 }
