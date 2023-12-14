@@ -1,11 +1,13 @@
 package br.com.pessoaedenreco.endereco.domain;
 
+import br.com.pessoaedenreco.endereco.application.api.EnderecoRequest;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -37,4 +39,13 @@ public class Endereco {
     private LocalDateTime dataHoraDoCadastro;
     private LocalDateTime dataHoraDaUltimaAlteracao;
 
+    public Endereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
+        this.idPessoa = idPessoa;
+        this.logradouro = enderecoRequest.getLogradouro();
+        this.cep = enderecoRequest.getCep();
+        this.numero = enderecoRequest.getNumero();
+        this.cidade = enderecoRequest.getCidade();
+        this.tipoEndereco = enderecoRequest.getTipoEndereco();
+        this.dataHoraDoCadastro = LocalDateTime.now();
+    }
 }

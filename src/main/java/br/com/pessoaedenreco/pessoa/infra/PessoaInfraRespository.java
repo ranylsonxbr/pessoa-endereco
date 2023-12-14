@@ -1,7 +1,6 @@
 package br.com.pessoaedenreco.pessoa.infra;
 
 import br.com.pessoaedenreco.handler.APIException;
-import br.com.pessoaedenreco.pessoa.application.api.ListaPessoasResponse;
 import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
