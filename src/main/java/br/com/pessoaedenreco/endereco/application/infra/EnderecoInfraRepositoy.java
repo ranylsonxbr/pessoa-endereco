@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.UUID;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -19,5 +22,13 @@ public class EnderecoInfraRepositoy implements EnderecoRespository {
         enderecoSpringDataJPA.save(endereco);
         log.info("[finish] EnderecoInfraRepositoy - salva");
         return endereco;
+    }
+
+    @Override
+    public List<Endereco> listaEnderecosDaPessoa(UUID idPessoa) {
+        log.info("[start] EnderecoInfraRepositoy - listaEnderecosDaPessoa");
+        List<Endereco> enderecos = enderecoSpringDataJPA.findAll();
+        log.info("[finish] EnderecoInfraRepositoy - listaEnderecosDaPessoa");
+        return enderecos;
     }
 }
