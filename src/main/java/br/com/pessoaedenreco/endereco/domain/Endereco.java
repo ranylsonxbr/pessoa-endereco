@@ -37,7 +37,7 @@ public class Endereco {
     private TipoEndereco tipoEndereco = TipoEndereco.PRINCIPAL;
 
     private LocalDateTime dataHoraDoCadastro;
-    private LocalDateTime dataHoraDaUltimaAlteracao;
+
 
     public Endereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
         this.idPessoa = idPessoa;

@@ -1,6 +1,10 @@
 package br.com.pessoaedenreco.pessoa.service;
 
 
+import br.com.pessoaedenreco.endereco.application.infra.EnderecoInfraRepositoy;
+import br.com.pessoaedenreco.endereco.application.repository.EnderecoRespository;
+import br.com.pessoaedenreco.endereco.domain.Endereco;
+import br.com.pessoaedenreco.endereco.domain.TipoEndereco;
 import br.com.pessoaedenreco.pessoa.application.api.*;
 import br.com.pessoaedenreco.pessoa.application.repository.PessoaRespository;
 import br.com.pessoaedenreco.pessoa.domain.Pessoa;
@@ -17,6 +21,7 @@ import java.util.UUID;
 public class PessoaApplicationService implements PessoaService {
 
     private final PessoaRespository pessoaRepository;
+    private final EnderecoRespository enderecoRepository;
 
     @Override
     public PessoaResponse criaPessoa(PessoaRequest pessoaRequest) {
@@ -40,8 +45,9 @@ public class PessoaApplicationService implements PessoaService {
     public PessoaDetalhadaResponse buscaPorId(UUID idPessoa) {
         log.info("[start] PessoaApplicationService - buscaPorId");
         Pessoa pessoa = pessoaRepository.buscaPorId(idPessoa);
+        Endereco enderecoPrincipal = enderecoRepository.findEnderecoPrincipal(idPessoa, TipoEndereco.PRINCIPAL);
         log.info("[finish] PessoaApplicationService - buscaPorId");
-        return new PessoaDetalhadaResponse(pessoa);
+        return new PessoaDetalhadaResponse(pessoa,enderecoPrincipal);
     }
 
     @Override
